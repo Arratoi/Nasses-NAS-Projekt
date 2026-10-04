@@ -3,7 +3,7 @@ services:
     image: "checkmk/check-mk-community:2.5.0-latest"
     container_name: "checkmk"
     environment:
-      - CMK_PASSWORD=B@d4FSs3rQ.wMa
+      - CMK_PASSWORD=xxx
       - TZ=Europe/Berlin
     volumes:
       - monitoring:/omd/sites
