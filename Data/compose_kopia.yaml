@@ -1,0 +1,35 @@
+services:
+  kopia:
+    image: kopia/kopia:latest
+    container_name: kopia
+    hostname: kopia
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:51515:51515"
+
+    environment:
+      KOPIA_PASSWORD: "h29Gw7sj2.,8wh"
+      USER: "kopia"
+
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      - --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=admin
+      - --server-password=B@d4FSs3rQ.wMa
+
+    volumes:
+      - C:/Docker/kopia/config:/app/config
+      - C:/Docker/kopia/cache:/app/cache
+      - C:/Docker/kopia/logs:/app/logs
+      - C:/Docker/kopia/tmp:/tmp:shared
+      - D:/Kopia-Repository:/repository
+      - nas_data:/data:ro
+      - C:/Kopia-Restore:/restore
+
+volumes:
+  nas_data:
+    external: true
